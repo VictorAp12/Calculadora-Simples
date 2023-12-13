@@ -1,16 +1,15 @@
 import sys
-import typing
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QWidget
 from tela import Ui_MainWindow
 
 class MainWindow(QtWidgets.QMainWindow):
-    def __init__(self, parent: QWidget | None = ..., flags: WindowFlags | WindowType = ...) -> None:
-        super().__init__(parent, flags)
+    def __init__(self):
+        QtWidgets.QMainWindow.__init__(self)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        self.show()
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    window = MainWindow.show()
+    window = MainWindow()
     sys.exit(app.exec_())
