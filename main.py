@@ -1,6 +1,7 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tela import Ui_MainWindow
+from operator import neg
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -24,17 +25,22 @@ class MainWindow(QtWidgets.QMainWindow):
         self.ui.minusButton.clicked.connect(lambda: pressionado("-"))
         self.ui.divisionButton.clicked.connect(lambda: pressionado("/"))
         self.ui.multiplicationButton.clicked.connect(lambda: pressionado("*"))
+        self.ui.percentageButton.clicked.connect(lambda: pressionado("%"))
+        self.ui.plusMinusButton.clicked.connect(lambda: pressionado("+-"))
         self.ui.equalButton.clicked.connect(lambda: resultado())
         self.ui.clearButton.clicked.connect(lambda: clearOutput())
         self.ui.backspaceButton.clicked.connect(lambda: backspace())
 
         def resultado():
             saida = self.ui.outputLabel.text()
+
             try:
-                resposta = eval(saida)
-                self.ui.outputLabel.setText(f"{resposta:.1f}")
+                resposta = eval(saida) if not '%' in saida else float(saida[:-1]) / 100
+                self.ui.outputLabel.setText(f"{resposta:.2f}")
+
             except:
                 self.ui.outputLabel.setText("ERRO")
+
 
         def backspace():
             saida = self.ui.outputLabel.text()
@@ -42,19 +48,31 @@ class MainWindow(QtWidgets.QMainWindow):
             if not len(saida[:-1]):
                 clearOutput()
 
-        def clearOutput():
-            self.ui.outputLabel.setText("0")
+        def clearOutput(number="0"):
+            self.ui.outputLabel.setText(str(number))
 
-        self.operacoes = ['+', '-', '*', '/', '.']
+        self.operacoes = ['+', '-', '*', '/', '.','%']
 
         def pressionado(tecla):
             saida = self.ui.outputLabel.text()
-            if saida == "0":
-                saida = ""
-            if tecla in self.operacoes and saida[-1] in self.operacoes:
-                saida = saida[:-1]
-            saida += tecla
-            self.ui.outputLabel.setText(saida)
+
+            if 'ERRO' in saida:
+                clearOutput(tecla)
+
+            else:   
+                if saida == "0":
+                    saida = ""
+                if tecla in self.operacoes and saida[-1] in self.operacoes:
+                    saida = saida[:-1]
+                    
+                elif tecla == '+-':
+                    saida = neg(float(saida))
+                    
+                    self.ui.outputLabel.setText(str(saida))
+                    return
+                
+                saida += tecla
+                self.ui.outputLabel.setText(saida)
         
 
 if __name__ == "__main__":
