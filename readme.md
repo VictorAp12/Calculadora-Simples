@@ -9,7 +9,7 @@ O intuito deste projeto foi aplicar os conhecimentos de POO (programação orien
 ###
 
 <div align="center">
-<img src="https://github.com/VictorAp12/Calculadora-Simples/assets/148372228/b77e244d-4ae8-4205-ae3c-20684ba65c87" />
+<img src="https://github.com/VictorAp12/Calculadora-Simples/assets/148372228/516fa824-ca8f-4750-bfaf-05e68c84fcaf" />
 </div>
 
 ###
