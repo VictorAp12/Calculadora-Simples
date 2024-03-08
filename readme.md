@@ -37,7 +37,7 @@ A calculadora também funciona com inputs do teclado como na lista a seguir:
 
   ### Como executável do windows
 
-  Simplesmente baixe o arquivo.exe através deste link e comece a usar a aplicação: [Download Calculadora Simples](https://github.com/VictorAp12/Calculadora-Simples/blob/main/Calculadora%20Simples.exe)
+  Simplesmente baixe o arquivo.exe através deste link e comece a usar a aplicação: [Download Calculadora Simples](https://github.com/VictorAp12/Calculadora-Simples/raw/main/Calculadora%20Simples.exe)
 
   ### Como um projeto Python
 
