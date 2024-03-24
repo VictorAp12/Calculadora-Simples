@@ -60,5 +60,5 @@ A calculadora também funciona com inputs do teclado como na lista a seguir:
 
   - Execute o main.py:
     ```bash
-    python -m main.py
+    python -m main
     ```
