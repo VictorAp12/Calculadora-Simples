@@ -26,7 +26,7 @@ A calculadora também funciona com inputs do teclado como na lista a seguir:
 
 ## Conteúdo:
 - [Requisitos](#requisitos)
-- [Instalação](#instalacao)
+- [Instalação](#instalação)
 
 
 ## Requisitos
